@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "home": "Home",
+    "work": "Progetti",
+    "studies": "Studi",
+    "about": "Chi sono"
+  },
+  "hero": {
+    "kicker": "Full-stack developer / AI student",
+    "title": "Costruisco prodotti web dove la tecnica incontra esigenze reali.",
+    "intro": "Sviluppatore full-stack, studente magistrale in Computer Science con curriculum AI. In parallelo gestisco un piccolo B&B in Italia: Ospitio è nato da quella esperienza.",
+    "cta_work": "Vedi i progetti",
+    "cta_contact": "Contattami"
+  },
+  "footer": {
+    "built_with": "Costruito con Nuxt",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  }
+}

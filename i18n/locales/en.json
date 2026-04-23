@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "studies": "Studies",
+    "about": "About"
+  },
+  "hero": {
+    "kicker": "Full-stack developer / AI student",
+    "title": "I build web products where engineering meets real-world needs.",
+    "intro": "Full-stack developer and Computer Science MSc student (AI track). I also run a small B&B in Italy — that's where Ospitio was born.",
+    "cta_work": "See my work",
+    "cta_contact": "Get in touch"
+  },
+  "footer": {
+    "built_with": "Built with Nuxt",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  }
+}

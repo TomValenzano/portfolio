@@ -1,0 +1,39 @@
+# Nuxt
+.nuxt/
+.output/
+.nitro/
+.cache/
+.data/
+dist/
+
+# Deploy
+.vercel/
+.netlify/
+.wrangler/
+
+# Node
+node_modules/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Build artifacts
+*.tsbuildinfo
+
+# Case study sources (temporary, do not publish)
+clone-repo/
