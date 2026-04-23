@@ -1,6 +1,16 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { locale, t } = useI18n()
 const localePath = useLocalePath()
+
+const collectionName = `projects_${locale.value}` as 'projects_it' | 'projects_en'
+
+const { data: featured } = await useAsyncData(
+  `featured-${locale.value}`,
+  () => queryCollection(collectionName)
+    .where('featured', '=', true)
+    .order('order', 'ASC')
+    .all(),
+)
 
 useSeoMeta({
   title: 'Tommaso Valenzano — Portfolio',
@@ -41,6 +51,48 @@ useSeoMeta({
           {{ t('hero.cta_contact') }}
         </a>
       </div>
+    </div>
+  </section>
+
+  <section v-if="featured?.length" class="mx-auto max-w-4xl px-6 pb-24">
+    <div class="flex items-baseline justify-between mb-8">
+      <h2 class="font-mono text-sm text-[color:var(--color-accent)]">// {{ t('home.featured') }}</h2>
+      <NuxtLink
+        :to="localePath('/work')"
+        class="font-mono text-xs text-[color:var(--color-muted)] hover:text-[color:var(--color-accent)] transition-colors"
+      >
+        {{ t('home.all_work') }} →
+      </NuxtLink>
+    </div>
+
+    <div class="grid gap-4">
+      <NuxtLink
+        v-for="project in featured"
+        :key="project.slug"
+        :to="localePath(`/${project.category}/${project.slug}`)"
+        class="group block p-6 md:p-8 rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)]/40 hover:bg-[color:var(--color-surface)] hover:border-[color:var(--color-accent)] transition-colors"
+      >
+        <div class="flex items-start justify-between gap-6 mb-3">
+          <h3 class="text-xl md:text-2xl font-semibold tracking-tight group-hover:text-[color:var(--color-accent)] transition-colors">
+            {{ project.title }}
+          </h3>
+          <span class="font-mono text-xs text-[color:var(--color-subtle)] whitespace-nowrap pt-1.5">
+            {{ project.period || '' }}
+          </span>
+        </div>
+        <p class="text-[color:var(--color-muted)] leading-relaxed line-clamp-2">
+          {{ project.subtitle }}
+        </p>
+        <div v-if="project.stack?.length" class="flex flex-wrap gap-2 pt-4">
+          <span
+            v-for="tech in project.stack.slice(0, 5)"
+            :key="tech"
+            class="font-mono text-[11px] px-2 py-0.5 rounded border border-[color:var(--color-border)] text-[color:var(--color-subtle)]"
+          >
+            {{ tech }}
+          </span>
+        </div>
+      </NuxtLink>
     </div>
   </section>
 </template>

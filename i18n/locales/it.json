@@ -12,6 +12,30 @@
     "cta_work": "Vedi i progetti",
     "cta_contact": "Contattami"
   },
+  "home": {
+    "featured": "progetti in evidenza",
+    "all_work": "tutti i progetti"
+  },
+  "work": {
+    "title": "Progetti personali",
+    "intro": "Prodotti che ho ideato, costruito e — in alcuni casi — uso in prima persona. Ogni case study spiega il problema, l'architettura e le decisioni tecniche.",
+    "index_description": "Progetti personali di Tommaso Valenzano — Ospitio, room-n14 e altri.",
+    "empty": "I case study dei progetti personali arriveranno presto."
+  },
+  "studies": {
+    "title": "Progetti universitari",
+    "intro": "Lavori nati in ambito accademico — tra magistrale in AI e triennale in Informatica — che raccontano qualcosa del mio percorso tecnico.",
+    "index_description": "Progetti universitari di Tommaso Valenzano — process mining, app Android, testing di sistemi software.",
+    "empty": "I case study universitari arriveranno presto."
+  },
+  "project": {
+    "back_to_work": "Tutti i progetti",
+    "back_to_studies": "Tutti gli studi",
+    "role": "Ruolo",
+    "course": "Corso",
+    "period": "Periodo",
+    "link": "Live"
+  },
   "footer": {
     "built_with": "Costruito con Nuxt",
     "email": "Email",

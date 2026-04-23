@@ -12,6 +12,30 @@
     "cta_work": "See my work",
     "cta_contact": "Get in touch"
   },
+  "home": {
+    "featured": "featured work",
+    "all_work": "all projects"
+  },
+  "work": {
+    "title": "Personal work",
+    "intro": "Products I designed, built and — in some cases — use myself. Each case study explains the problem, architecture and the technical decisions behind it.",
+    "index_description": "Personal projects by Tommaso Valenzano — Ospitio, room-n14 and more.",
+    "empty": "Personal project case studies coming soon."
+  },
+  "studies": {
+    "title": "Academic work",
+    "intro": "Projects from my CS MSc (AI track) and BSc — snapshots of my technical journey in academia.",
+    "index_description": "Academic projects by Tommaso Valenzano — process mining, Android app, software systems testing.",
+    "empty": "Academic case studies coming soon."
+  },
+  "project": {
+    "back_to_work": "All work",
+    "back_to_studies": "All studies",
+    "role": "Role",
+    "course": "Course",
+    "period": "Period",
+    "link": "Live"
+  },
   "footer": {
     "built_with": "Built with Nuxt",
     "email": "Email",
