@@ -9,8 +9,13 @@ const currentYear = new Date().getFullYear()
   <div class="min-h-dvh flex flex-col">
     <header class="sticky top-0 z-20 backdrop-blur-md bg-[color:var(--color-bg)]/70 border-b border-[color:var(--color-border)]">
       <nav class="mx-auto max-w-6xl px-6 h-14 flex items-center justify-between">
-        <NuxtLink :to="localePath('/')" class="font-mono text-sm tracking-tight hover:text-[color:var(--color-accent)] transition-colors">
-          tommy<span class="text-[color:var(--color-accent)]">.dev</span>
+        <NuxtLink :to="localePath('/')" class="flex items-center gap-2.5 group">
+          <span class="flex items-center justify-center w-7 h-7 rounded-md border border-[color:var(--color-border)] font-mono text-[11px] font-semibold tracking-wider group-hover:border-[color:var(--color-accent)] group-hover:text-[color:var(--color-accent)] transition-colors">
+            TV
+          </span>
+          <span class="hidden sm:inline text-sm tracking-tight group-hover:text-[color:var(--color-accent)] transition-colors">
+            Tommaso Valenzano
+          </span>
         </NuxtLink>
 
         <div class="flex items-center gap-6 text-sm">
