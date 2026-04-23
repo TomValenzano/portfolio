@@ -6,7 +6,10 @@ const currentYear = new Date().getFullYear()
 </script>
 
 <template>
-  <div class="min-h-dvh flex flex-col">
+  <div class="min-h-dvh flex flex-col relative">
+    <div class="bg-layer bg-grid" aria-hidden="true" />
+    <div class="bg-layer bg-glow" aria-hidden="true" />
+
     <header class="sticky top-0 z-20 backdrop-blur-md bg-[color:var(--color-bg)]/70 border-b border-[color:var(--color-border)]">
       <nav class="mx-auto max-w-6xl px-6 h-14 flex items-center justify-between">
         <NuxtLink :to="localePath('/')" class="flex items-center gap-2.5 group">
@@ -46,11 +49,11 @@ const currentYear = new Date().getFullYear()
       </nav>
     </header>
 
-    <main class="flex-1">
+    <main class="flex-1 relative z-10">
       <slot />
     </main>
 
-    <footer class="border-t border-[color:var(--color-border)] font-mono text-xs text-[color:var(--color-subtle)]">
+    <footer class="relative z-10 border-t border-[color:var(--color-border)] font-mono text-xs text-[color:var(--color-subtle)] bg-[color:var(--color-bg)]/50 backdrop-blur-sm">
       <div class="mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row justify-between gap-4">
         <span>© {{ currentYear }} Tommaso Valenzano</span>
         <div class="flex gap-5">
