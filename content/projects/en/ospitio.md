@@ -1,14 +1,14 @@
 ---
 title: Ospitio
 slug: ospitio
-subtitle: A management SaaS for Italian accommodations that automates the two mandatory regulatory workflows — Alloggiati Web and Paytourist — built by someone who actually runs a B&B.
+subtitle: A management SaaS for Italian accommodations that automates the two mandatory regulatory workflows — Alloggiati Web and Paytourist — in a single platform.
 category: work
 role: Founder · full-stack
 stack:
   - Nuxt 3
-  - Nuxt UI v3
-  - NestJS 11
-  - Prisma 6
+  - Nuxt UI
+  - NestJS
+  - Prisma
   - PostgreSQL
   - TypeScript
   - SOAP
@@ -20,7 +20,7 @@ order: 1
 
 ## The problem
 
-Every Italian accommodation (hotel, B&B, apartment rental) has to handle two mandatory per-guest workflows:
+Every Italian lodging business has to handle two mandatory per-guest workflows:
 
 1. **Alloggiati Web** — run by the Italian State Police. Guest records must be filed within 24 hours of check-in. The only official channel is a SOAP API that accepts TXT files with **fixed-width 168-character records**. 15 columns, each with its own padding (50 for surname, 30 for first name, 2 for the Italian province code, 9 for the ISTAT code of the birth city). One character off position = record rejected with a cryptic `SCHEDINA_CAMPO_NON_CORRETTO` error.
 
@@ -34,28 +34,28 @@ I run a small B&B. I lived the problem for months before I decided automation wa
 
 ## Architecture
 
-**Frontend** — Nuxt 3 SPA + Nuxt UI v3 + TypeScript, SSG build on Netlify. No Pinia stores: just Nuxt's native `useState()` plus 11 composables that wrap the API calls. A single `useApi()` layer around `$fetch` handles bearer-token injection and impersonation headers.
+**Frontend** — Nuxt 3 SPA + Nuxt UI + TypeScript, SSG build on Netlify. No Pinia stores: just Nuxt's native `useState()` plus 11 composables that wrap the API calls. A single `useApi()` layer around `$fetch` handles bearer-token injection and impersonation headers.
 
-**Backend** — NestJS 11 + Prisma 6 + PostgreSQL (Supabase) on Render. 14 domain modules:
+**Backend** — NestJS + Prisma + PostgreSQL, containerised deploy. 14 domain modules:
 
 ```text
 auth              ← JWT + registration / login / password reset
 users             ← user management
-permissions       ← granular RBAC (admin, export_alloggiati, switch_user, …)
-properties        ← accommodations + Alloggiati/Paytourist credentials
-rooms             ← rooms + Paytourist room mapping
+permissions       ← granular RBAC
+properties        ← accommodations + credentials for integrations
+rooms             ← rooms + mapping to the tax platform
 guests            ← guest master data
 guest-documents   ← identity documents per guest
 stays             ← reservations
 stay-guests       ← stay↔guest pivot with role
-exports           ← 168-char TXT generator for Alloggiati
-alloggiati-web    ← SOAP client for the State Police portal
+exports           ← 168-char TXT generator for the public-security portal
+alloggiati-web    ← SOAP client for the public-security portal
 paytourist        ← REST client for the tourist-tax platform
-checkin-intake    ← webhook for an external self-check-in kiosk
-audit             ← full audit log of entity changes
+checkin-intake    ← webhook ingress for external self-check-in modules
+audit             ← log of entity changes
 ```
 
-Three cross-cutting guards: a global `JwtAuthGuard`, a `PermissionsGuard` for granular permissions, and an `ImpersonationInterceptor` that lets an admin with the `switch_user` permission act as another user by passing an 8-character hex code in the `X-Impersonate-Code` header.
+Three cross-cutting guards: a global `JwtAuthGuard` for token validation, a `PermissionsGuard` for granular permissions, and an `ImpersonationInterceptor` that lets an admin — only if authorised — operate in the context of another user through a dedicated channel.
 
 ## Key technical decisions
 
@@ -69,11 +69,11 @@ Three cross-cutting guards: a global `JwtAuthGuard`, a `PermissionsGuard` for gr
 
 **3. Lightweight multi-tenancy.** One backend instance, N users, each with their own accommodations. Every operational table (`Guest`, `Stay`, `Export`, …) carries an `ownerId` FK; all services filter by owner. Simpler than schema-per-tenant, safer than trusting the app layer blindly.
 
-**4. Impersonation instead of shared passwords.** To assist a user, I step into their account by passing an 8-character hex code (`X-Impersonate-Code`) — gated by the `switch_user` permission. No more *"send me your password for a sec"*. Every impersonated action lands in `AuditLog` with both the operator and the target user.
+**4. Impersonation instead of shared passwords.** To assist a user, I can step into their account through a dedicated flow, gated by a specific permission. No more *"send me your password for a sec"*. Every impersonated action is logged with both the operator and the target user.
 
 **5. Test mode as a gesture of respect.** Before sending records to the State Police, the user can click **Test**: the backend calls the SOAP `Test()` method which validates without committing. Errors come back per-record with the original code and a human-readable translation. No surprises after Send.
 
-**6. Kiosk-to-stay webhook.** An external self-check-in module can create `Guest + GuestDocument + Stay` via an API-key-protected webhook (`CHECKIN_WEBHOOK_API_KEY`). When a guest fills the form at the front door, the data reaches the backend already structured — ready to be filed with Alloggiati.
+**6. Kiosk-to-stay webhook.** An external self-check-in module can create `Guest + GuestDocument + Stay` through an authenticated webhook endpoint. When a guest fills the form at the front door, the data reaches the backend already structured — ready to be filed with the public-security portal.
 
 ## Numbers
 

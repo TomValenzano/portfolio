@@ -1,14 +1,14 @@
 ---
 title: Ospitio
 slug: ospitio
-subtitle: Il gestionale per strutture turistiche italiane che automatizza gli adempimenti obbligatori — Alloggiati Web e Paytourist — costruito da chi un B&B lo gestisce davvero.
+subtitle: Il gestionale per strutture turistiche italiane che automatizza due adempimenti obbligatori — Alloggiati Web e Paytourist — in un'unica piattaforma.
 category: work
 role: Fondatore · full-stack
 stack:
   - Nuxt 3
-  - Nuxt UI v3
-  - NestJS 11
-  - Prisma 6
+  - Nuxt UI
+  - NestJS
+  - Prisma
   - PostgreSQL
   - TypeScript
   - SOAP
@@ -34,28 +34,28 @@ Gestisco un piccolo B&B. Ho vissuto il problema per mesi prima di decidere che l
 
 ## Architettura
 
-**Frontend** — Nuxt 3 SPA + Nuxt UI v3 + TypeScript, build SSG su Netlify. Niente store Pinia: `useState()` nativo di Nuxt + 11 composables che incapsulano le chiamate API. Un singolo `useApi()` wrappa `$fetch` con iniezione automatica del bearer token e dell'header di impersonation.
+**Frontend** — Nuxt 3 SPA + Nuxt UI + TypeScript, build SSG su Netlify. Niente store Pinia: `useState()` nativo di Nuxt + 11 composables che incapsulano le chiamate API. Un singolo `useApi()` wrappa `$fetch` con iniezione automatica del bearer token e dell'header di impersonation.
 
-**Backend** — NestJS 11 + Prisma 6 + PostgreSQL (Supabase) su Render. 14 moduli di dominio:
+**Backend** — NestJS + Prisma + PostgreSQL, deploy containerizzato. 14 moduli di dominio:
 
 ```text
 auth              ← JWT + registration / login / password reset
 users             ← user management
-permissions       ← RBAC granulare (admin, export_alloggiati, switch_user, …)
-properties        ← strutture + credenziali Alloggiati/Paytourist
-rooms             ← camere + mapping verso Paytourist
+permissions       ← RBAC granulare
+properties        ← strutture + credenziali delle integrazioni
+rooms             ← camere + mapping verso la piattaforma fiscale
 guests            ← anagrafica ospiti
 guest-documents   ← documenti identità per ospite
-stays             ← soggiorni (reservation)
+stays             ← soggiorni
 stay-guests       ← pivot soggiorno↔ospite con ruolo
-exports           ← generatore TXT 168-char per Alloggiati
-alloggiati-web    ← client SOAP Polizia di Stato
-paytourist        ← client REST imposta di soggiorno
-checkin-intake    ← webhook per modulo kiosk di self check-in
-audit             ← log completo delle modifiche
+exports           ← generatore TXT 168-char per il portale di pubblica sicurezza
+alloggiati-web    ← client SOAP del portale di pubblica sicurezza
+paytourist        ← client REST dell'imposta di soggiorno
+checkin-intake    ← ingresso webhook per moduli di self check-in
+audit             ← log delle modifiche
 ```
 
-Tre guard trasversali: `JwtAuthGuard` globale, `PermissionsGuard` per i permessi granulari, `ImpersonationInterceptor` che permette a un admin con permesso `switch_user` di agire come un altro utente passando un codice esadecimale di 8 caratteri nell'header `X-Impersonate-Code`.
+Tre guard trasversali: `JwtAuthGuard` globale per il controllo del token, `PermissionsGuard` per i permessi granulari, `ImpersonationInterceptor` che permette a un admin — solo se autorizzato — di operare nel contesto di un altro utente tramite un canale dedicato.
 
 ## Decisioni tecniche chiave
 
@@ -69,11 +69,11 @@ Tre guard trasversali: `JwtAuthGuard` globale, `PermissionsGuard` per i permessi
 
 **3. Multi-tenancy leggera.** Un'istanza backend, N utenti, ognuno con le proprie strutture. Ogni tabella operativa (`Guest`, `Stay`, `Export`, …) ha FK verso `ownerId`: tutti i service filtrano per owner. Più semplice di uno schema-per-tenant, più sicuro del trust cieco nell'app.
 
-**4. Impersonation al posto delle password condivise.** Per assistere un utente, entro nel suo account passando un codice esadecimale di 8 caratteri (`X-Impersonate-Code`) — autorizzato dal permesso `switch_user`. Niente più *"dammi la password un secondo"*. Ogni azione in impersonation viene loggata in `AuditLog` con entrambi gli utenti.
+**4. Impersonation al posto delle password condivise.** Per assistere un utente, posso entrare nel suo account tramite un flusso dedicato, gated da un permesso specifico. Niente più *"dammi la password un secondo"*. Ogni azione in impersonation viene loggata con operatore e utente target.
 
 **5. Test mode come gesto di rispetto per l'utente.** Prima di inviare le schedine alla Polizia di Stato, l'utente può cliccare **Test**: il backend chiama il metodo SOAP `Test()` che valida senza committare. Gli errori tornano per-schedina, con il codice originale e una traduzione leggibile. Zero sorprese dopo il Send.
 
-**6. Webhook kiosk-to-stay.** Un modulo esterno di self check-in può creare `Guest + GuestDocument + Stay` via webhook protetto da API key (`CHECKIN_WEBHOOK_API_KEY`). Quando l'ospite compila il form alla porta d'ingresso, i dati arrivano già strutturati nel backend — pronti per essere inviati ad Alloggiati.
+**6. Webhook kiosk-to-stay.** Un modulo esterno di self check-in può creare `Guest + GuestDocument + Stay` tramite un endpoint webhook autenticato. Quando l'ospite compila il form alla porta d'ingresso, i dati arrivano già strutturati nel backend — pronti per essere inviati al portale di pubblica sicurezza.
 
 ## Numeri
 
