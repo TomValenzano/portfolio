@@ -45,6 +45,9 @@ export default defineNuxtConfig({
       { name: 'Geist', provider: 'google' },
       { name: 'Geist Mono', provider: 'google' },
     ],
+    defaults: {
+      preload: true,
+    },
   },
 
   app: {
