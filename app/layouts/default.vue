@@ -62,7 +62,7 @@ const currentYear = new Date().getFullYear()
             class="hover:text-[color:var(--color-accent)] transition-colors"
           >{{ t('footer.email') }}</a>
           <a
-            href="https://www.linkedin.com/in/tommasovalenzano/"
+            href="https://www.linkedin.com/in/tommasovalenzano01/"
             target="_blank"
             rel="noopener"
             class="hover:text-[color:var(--color-accent)] transition-colors"
