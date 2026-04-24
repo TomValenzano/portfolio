@@ -3,7 +3,7 @@ title: PuppyPad
 slug: puppypad
 subtitle: App Android multi-ruolo per il welfare animale — utenti, veterinari, enti pubblici collaborano su segnalazioni geolocalizzate e cartella sanitaria condivisa.
 category: studies
-role: Progetto universitario · triennale in Informatica
+role: Sviluppo di Mobile Software · triennale in Informatica
 stack:
   - Android (Java)
   - Firebase (Auth · Realtime DB · Storage)
@@ -20,7 +20,7 @@ order: 20
 
 **PuppyPad** è un'applicazione Android pensata per connettere tre attori del mondo del welfare animale italiano: **utenti privati** (proprietari / persone che incontrano animali in difficoltà), **veterinari**, **enti pubblici** (canili, associazioni, amministrazioni). L'obiettivo è dare una piattaforma unica per segnalare un animale che ha bisogno, instradare la segnalazione al ruolo giusto e tenere traccia della sua storia clinica e sociale nel tempo.
 
-Progetto universitario di gruppo (4 sviluppatori) sviluppato durante la triennale in Informatica e Tecnologie per la Produzione del Software.
+Progetto universitario di gruppo (4 sviluppatori) sviluppato per l'esame di **Sviluppo di Mobile Software** (da cui il nome della repo: *SMS*) durante la triennale in Informatica e Tecnologie per la Produzione del Software.
 
 ## Il dominio
 

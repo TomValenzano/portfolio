@@ -19,7 +19,7 @@
   "work": {
     "title": "Progetti personali",
     "intro": "Prodotti che ho ideato, costruito e — in alcuni casi — uso in prima persona. Ogni case study spiega il problema, l'architettura e le decisioni tecniche.",
-    "index_description": "Progetti personali di Tommaso Valenzano — Ospitio, room-n14 e altri.",
+    "index_description": "Progetti personali di Tommaso Valenzano — Ospitio, Room N14 e altri.",
     "empty": "I case study dei progetti personali arriveranno presto."
   },
   "studies": {
@@ -35,6 +35,26 @@
     "course": "Corso",
     "period": "Periodo",
     "link": "Live"
+  },
+  "about": {
+    "title": "Chi sono",
+    "meta_description": "Tommaso Valenzano — full-stack developer presso C&C Apple Premium Partner, studente magistrale CS con curriculum AI, costruisco prodotti come Ospitio.",
+    "bio_1": "Sono Tommaso Valenzano. Lavoro come full-stack developer presso C&C Apple Premium Partner e sto completando la magistrale in Computer Science con curriculum AI all'Università degli Studi di Bari Aldo Moro, dove ho già preso la triennale in Informatica e Tecnologie per la Produzione del Software.",
+    "bio_2": "Costruisco prodotti personali come Ospitio e Room N14 — progetti nati da esigenze concrete che uso anche come scuola per lo stack. Questo portfolio è uno di quelli.",
+    "now_title": "Adesso",
+    "now_items": [
+      "Full-stack su stack Nuxt + NestJS in azienda",
+      "Ospitio — gestionale SaaS per strutture turistiche italiane",
+      "Magistrale in AI, con focus su LLM e metodi formali",
+      "Scrivo su questo portfolio ogni volta che imparo qualcosa che merita di essere raccontato"
+    ],
+    "stack_title": "Stack",
+    "education_title": "Percorso accademico",
+    "coursework_title": "Esami rilevanti",
+    "experience_title": "Esperienza",
+    "contact_title": "Per dirmi qualcosa",
+    "contact_description": "Scrivimi via email o trovami su LinkedIn. Rispondo in italiano o inglese.",
+    "view_case_study": "Case study"
   },
   "footer": {
     "built_with": "Costruito con Nuxt",

@@ -19,7 +19,7 @@
   "work": {
     "title": "Personal work",
     "intro": "Products I designed, built and — in some cases — use myself. Each case study explains the problem, architecture and the technical decisions behind it.",
-    "index_description": "Personal projects by Tommaso Valenzano — Ospitio, room-n14 and more.",
+    "index_description": "Personal projects by Tommaso Valenzano — Ospitio, Room N14 and more.",
     "empty": "Personal project case studies coming soon."
   },
   "studies": {
@@ -35,6 +35,26 @@
     "course": "Course",
     "period": "Period",
     "link": "Live"
+  },
+  "about": {
+    "title": "About",
+    "meta_description": "Tommaso Valenzano — full-stack developer at C&C Apple Premium Partner, Computer Science MSc student (AI track), building products like Ospitio.",
+    "bio_1": "I'm Tommaso Valenzano. I work as a full-stack developer at C&C Apple Premium Partner and I'm completing my MSc in Computer Science (AI track) at Università degli Studi di Bari Aldo Moro, where I already earned my BSc in Computer Science & Software Production Technologies.",
+    "bio_2": "I build personal products like Ospitio and Room N14 — projects born from concrete needs that I also use as a playground for the stack. This portfolio is one of them.",
+    "now_title": "Now",
+    "now_items": [
+      "Full-stack on Nuxt + NestJS at work",
+      "Ospitio — a management SaaS for Italian accommodations",
+      "MSc in AI, focused on LLMs and formal methods",
+      "Writing on this portfolio whenever I learn something worth telling"
+    ],
+    "stack_title": "Stack",
+    "education_title": "Education",
+    "coursework_title": "Selected coursework",
+    "experience_title": "Experience",
+    "contact_title": "Say hi",
+    "contact_description": "Drop me an email or find me on LinkedIn. Happy to reply in English or Italian.",
+    "view_case_study": "Case study"
   },
   "footer": {
     "built_with": "Built with Nuxt",

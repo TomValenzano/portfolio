@@ -3,7 +3,7 @@ title: PuppyPad
 slug: puppypad
 subtitle: Multi-role Android app for animal welfare — pet owners, vets and public entities collaborate on geolocated reports and a shared animal health record.
 category: studies
-role: University project · BSc in Computer Science
+role: Mobile Software Development · BSc in Computer Science
 stack:
   - Android (Java)
   - Firebase (Auth · Realtime DB · Storage)
@@ -20,7 +20,7 @@ order: 20
 
 **PuppyPad** is an Android app designed to connect three actors in the Italian animal-welfare ecosystem: **private users** (pet owners and passers-by who encounter animals in distress), **veterinarians**, and **public entities** (shelters, associations, local authorities). The goal: a single platform to report an animal in need, route that report to the right role, and track the animal's clinical and social history over time.
 
-Group university project (4 developers) built during the BSc in Computer Science.
+Group university project (4 developers) built for the **Mobile Software Development** exam (hence the repo name: *SMS* — *Sviluppo di Mobile Software*) during the BSc in Computer Science.
 
 ## The domain
 
