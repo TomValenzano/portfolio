@@ -22,13 +22,13 @@ const currentYear = new Date().getFullYear()
         </NuxtLink>
 
         <div class="flex items-center gap-6 text-sm">
-          <NuxtLink :to="localePath('/work')" class="text-[color:var(--color-muted)] hover:text-[color:var(--color-fg)] transition-colors">
+          <NuxtLink :to="localePath('/work')" class="nav-link text-[color:var(--color-muted)] hover:text-[color:var(--color-fg)] transition-colors">
             {{ t('nav.work') }}
           </NuxtLink>
-          <NuxtLink :to="localePath('/studies')" class="text-[color:var(--color-muted)] hover:text-[color:var(--color-fg)] transition-colors">
+          <NuxtLink :to="localePath('/studies')" class="nav-link text-[color:var(--color-muted)] hover:text-[color:var(--color-fg)] transition-colors">
             {{ t('nav.studies') }}
           </NuxtLink>
-          <NuxtLink :to="localePath('/about')" class="text-[color:var(--color-muted)] hover:text-[color:var(--color-fg)] transition-colors">
+          <NuxtLink :to="localePath('/about')" class="nav-link text-[color:var(--color-muted)] hover:text-[color:var(--color-fg)] transition-colors">
             {{ t('nav.about') }}
           </NuxtLink>
 

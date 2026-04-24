@@ -28,15 +28,18 @@ useSeoMeta({
 
 <template>
   <article class="mx-auto max-w-3xl px-6 py-16 md:py-24">
-    <header class="space-y-5 mb-14">
+    <header class="hero-stagger space-y-5 mb-14">
       <NuxtLink
         :to="localePath('/work')"
-        class="inline-flex items-center gap-2 font-mono text-xs text-[color:var(--color-muted)] hover:text-[color:var(--color-accent)] transition-colors"
+        class="group inline-flex items-center gap-2 font-mono text-xs text-[color:var(--color-muted)] hover:text-[color:var(--color-accent)] transition-colors"
       >
-        <span aria-hidden="true">←</span> {{ t('project.back_to_work') }}
+        <span aria-hidden="true" class="inline-block transition-transform duration-200 group-hover:-translate-x-0.5">←</span> {{ t('project.back_to_work') }}
       </NuxtLink>
 
-      <h1 class="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05] text-balance">
+      <h1
+        class="project-hero-title text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05] text-balance"
+        :style="{ '--vt-name': `project-title-${project.slug}` } as any"
+      >
         {{ project.title }}
       </h1>
 

@@ -24,6 +24,10 @@ export default defineNuxtConfig({
     strict: true,
   },
 
+  experimental: {
+    viewTransition: true,
+  },
+
   i18n: {
     defaultLocale: 'it',
     strategy: 'prefix_except_default',

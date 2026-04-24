@@ -87,7 +87,7 @@ const nowItems = computed(() => tm('about.now_items') as string[])
 
 <template>
   <article class="mx-auto max-w-3xl px-6 py-16 md:py-24 space-y-16">
-    <header class="space-y-5">
+    <header class="hero-stagger space-y-5">
       <p class="font-mono text-sm text-[color:var(--color-accent)]">/about</p>
       <h1 class="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05]">
         {{ t('about.title') }}
@@ -100,7 +100,7 @@ const nowItems = computed(() => tm('about.now_items') as string[])
       </p>
     </header>
 
-    <section class="space-y-5">
+    <section v-reveal class="space-y-5">
       <h2 class="font-mono text-sm text-[color:var(--color-accent)]">// {{ t('about.now_title') }}</h2>
       <ul class="space-y-2 text-[color:var(--color-muted)]">
         <li
@@ -114,7 +114,7 @@ const nowItems = computed(() => tm('about.now_items') as string[])
       </ul>
     </section>
 
-    <section class="space-y-5">
+    <section v-reveal class="space-y-5">
       <h2 class="font-mono text-sm text-[color:var(--color-accent)]">// {{ t('about.stack_title') }}</h2>
       <div class="grid sm:grid-cols-2 gap-6">
         <div
@@ -138,7 +138,7 @@ const nowItems = computed(() => tm('about.now_items') as string[])
       </div>
     </section>
 
-    <section class="space-y-5">
+    <section v-reveal class="space-y-5">
       <h2 class="font-mono text-sm text-[color:var(--color-accent)]">// {{ t('about.education_title') }}</h2>
       <ul class="space-y-5">
         <li
@@ -153,7 +153,7 @@ const nowItems = computed(() => tm('about.now_items') as string[])
       </ul>
     </section>
 
-    <section class="space-y-5">
+    <section v-reveal class="space-y-5">
       <h2 class="font-mono text-sm text-[color:var(--color-accent)]">// {{ t('about.coursework_title') }}</h2>
       <ul class="space-y-4">
         <li
@@ -176,7 +176,7 @@ const nowItems = computed(() => tm('about.now_items') as string[])
       </ul>
     </section>
 
-    <section class="space-y-5">
+    <section v-reveal class="space-y-5">
       <h2 class="font-mono text-sm text-[color:var(--color-accent)]">// {{ t('about.experience_title') }}</h2>
       <ul class="space-y-5">
         <li
@@ -192,7 +192,7 @@ const nowItems = computed(() => tm('about.now_items') as string[])
       </ul>
     </section>
 
-    <section class="space-y-5">
+    <section v-reveal class="space-y-5">
       <h2 class="font-mono text-sm text-[color:var(--color-accent)]">// {{ t('about.contact_title') }}</h2>
       <p class="text-[color:var(--color-muted)] max-w-xl leading-relaxed">
         {{ t('about.contact_description') }}
