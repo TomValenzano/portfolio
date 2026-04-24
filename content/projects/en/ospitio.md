@@ -13,7 +13,7 @@ stack:
   - TypeScript
   - SOAP
   - REST
-period: 2024 → ongoing
+period: 2026 → ongoing
 featured: true
 order: 1
 ---
@@ -34,7 +34,7 @@ I run a small B&B. I lived the problem for months before I decided automation wa
 
 ## Architecture
 
-**Frontend** — Nuxt 3 SPA + Nuxt UI + TypeScript, SSG build on Netlify. No Pinia stores: just Nuxt's native `useState()` plus 11 composables that wrap the API calls. A single `useApi()` layer around `$fetch` handles bearer-token injection and impersonation headers.
+**Frontend** — Nuxt 3 SPA + Nuxt UI + TypeScript, SSG build on static hosting. No Pinia stores: just Nuxt's native `useState()` plus 11 composables that wrap the API calls. A single `useApi()` layer around `$fetch` handles bearer-token injection and request-context headers.
 
 **Backend** — NestJS + Prisma + PostgreSQL, containerised deploy. 14 domain modules:
 

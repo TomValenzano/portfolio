@@ -13,7 +13,7 @@ stack:
   - TypeScript
   - SOAP
   - REST
-period: 2024 → in corso
+period: 2026 → in corso
 featured: true
 order: 1
 ---
@@ -34,7 +34,7 @@ Gestisco un piccolo B&B. Ho vissuto il problema per mesi prima di decidere che l
 
 ## Architettura
 
-**Frontend** — Nuxt 3 SPA + Nuxt UI + TypeScript, build SSG su Netlify. Niente store Pinia: `useState()` nativo di Nuxt + 11 composables che incapsulano le chiamate API. Un singolo `useApi()` wrappa `$fetch` con iniezione automatica del bearer token e dell'header di impersonation.
+**Frontend** — Nuxt 3 SPA + Nuxt UI + TypeScript, build SSG su hosting statico. Niente store Pinia: `useState()` nativo di Nuxt + 11 composables che incapsulano le chiamate API. Un singolo `useApi()` wrappa `$fetch` con iniezione automatica del bearer token e dell'header di contesto utente.
 
 **Backend** — NestJS + Prisma + PostgreSQL, deploy containerizzato. 14 moduli di dominio:
 
