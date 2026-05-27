@@ -44,6 +44,8 @@ export default defineNuxtConfig({
     families: [
       { name: 'Geist', provider: 'google' },
       { name: 'Geist Mono', provider: 'google' },
+      { name: 'Anton', provider: 'google', weights: [400] },
+      { name: 'Inter', provider: 'google', weights: [400, 500, 600, 700] },
     ],
     defaults: {
       preload: true,
