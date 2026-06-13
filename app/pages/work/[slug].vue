@@ -59,7 +59,7 @@ useSeoMeta({
         <div v-if="project.links?.live" class="col-span-full sm:col-span-1">
           <dt class="font-mono text-[10px] uppercase tracking-wider text-[color:var(--color-subtle)]">{{ t('project.link') }}</dt>
           <dd class="mt-1 text-sm">
-            <a :href="project.links.live" target="_blank" rel="noopener" class="text-[color:var(--color-accent)] hover:underline">
+            <a :href="project.links.live" target="_blank" rel="noopener noreferrer" class="text-[color:var(--color-accent)] hover:underline">
               {{ project.links.live.replace(/^https?:\/\//, '') }} ↗
             </a>
           </dd>

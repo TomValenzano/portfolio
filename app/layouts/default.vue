@@ -70,7 +70,7 @@ useHead({
           <a
             href="https://www.linkedin.com/in/tommasovalenzano01/"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="inline-flex items-center min-h-[44px] px-2 hover:text-[color:var(--color-accent)] transition-colors"
           >{{ t('footer.linkedin') }}</a>
         </div>

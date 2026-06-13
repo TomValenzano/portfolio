@@ -63,7 +63,7 @@ const projects = [
         class="cta"
         href="https://instagram.com/tomstudio.it"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         <span>Scrivimi su Instagram</span>
         <span class="cta-arrow" aria-hidden="true">→</span>
@@ -112,7 +112,7 @@ const projects = [
             class="project-link"
             :href="project.href"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <span>vedi il sito</span>
             <span aria-hidden="true">→</span>
@@ -146,7 +146,7 @@ const projects = [
         class="contact-link"
         href="https://instagram.com/tomstudio.it"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         <span class="contact-arrow" aria-hidden="true">→</span>
         <span>Instagram</span>
@@ -160,7 +160,7 @@ const projects = [
       <a
         href="https://instagram.com/tomstudio.it"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >Instagram →</a>
     </footer>
   </div>

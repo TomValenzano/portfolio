@@ -208,7 +208,7 @@ const nowItems = computed(() => tm('about.now_items') as string[])
         <a
           href="https://www.linkedin.com/in/tommasovalenzano01/"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           class="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-[color:var(--color-border)] hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-accent)] transition-colors"
         >
           LinkedIn
