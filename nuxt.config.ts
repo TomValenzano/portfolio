@@ -58,6 +58,22 @@ export default defineNuxtConfig({
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'theme-color', content: '#09090b' },
+
+        { property: 'og:type', content: 'website' },
+        { property: 'og:site_name', content: 'Tommaso Valenzano' },
+        { property: 'og:title', content: 'Tommaso Valenzano — Full-stack developer' },
+        { property: 'og:description', content: 'Personal portfolio. Full-stack developer at C&C Apple Premium Partner, CS MSc student (AI track). Case studies on Ospitio, Room N14 and more.' },
+        { property: 'og:url', content: 'https://tvalenzano.it' },
+        { property: 'og:image', content: 'https://tvalenzano.it/og-image.png' },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { property: 'og:locale', content: 'it_IT' },
+        { property: 'og:locale:alternate', content: 'en_US' },
+
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'Tommaso Valenzano — Full-stack developer' },
+        { name: 'twitter:description', content: 'Personal portfolio. Full-stack developer at C&C Apple Premium Partner, CS MSc student (AI track).' },
+        { name: 'twitter:image', content: 'https://tvalenzano.it/og-image.png' },
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
