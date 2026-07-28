@@ -1,6 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'studio',
+  // Brain: nuxt-view-transition-i18n-freeze
   // i18n re-navigates this route on hydration; a view transition on that
   // navigation hangs and freezes rendering for ~4s (Chrome VT timeout)
   viewTransition: false,
