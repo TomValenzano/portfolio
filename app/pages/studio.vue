@@ -29,6 +29,12 @@ const currentYear = new Date().getFullYear()
 
 const projects = [
   {
+    name: 'Paninoteca da Daniele',
+    description: 'Brand giocoso per una paninoteca street food a Bari. Ordini online, menù digitale, fedeltà con QR.',
+    image: '/img/smash.jpg',
+    href: 'https://comelosmash.it/',
+  },
+  {
     name: 'Room n.14',
     description: 'Brand minimal per un B&B di città. Performance 100/100, tipografia su misura.',
     image: '/img/room-n14.jpg',
