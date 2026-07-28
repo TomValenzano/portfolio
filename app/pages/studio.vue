@@ -1,6 +1,9 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'studio',
+  // i18n re-navigates this route on hydration; a view transition on that
+  // navigation hangs and freezes rendering for ~4s (Chrome VT timeout)
+  viewTransition: false,
 })
 
 defineI18nRoute({
@@ -104,8 +107,8 @@ const projects = [
               class="project-img"
               :src="project.image"
               :alt="`Sito ${project.name}`"
-              width="1400"
-              height="893"
+              width="1000"
+              height="638"
               loading="lazy"
               decoding="async"
             >
